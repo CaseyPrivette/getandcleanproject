@@ -40,4 +40,10 @@ I next created R data frames by reading the txt files into R using the read.tabl
 Next I wrote a for loop to change all coded activities in data frames testy and trainy to the cooresponding descriptive names. I also used the gsub() function to make the variable names found in features.txt into a syntatically valid format. Next I used the names function to add the list of variables in var_names as the column names in test and train and assign "Activity_Names" as the column name in testy and trainy.
 
 ###Merging datasets
-Because data frames test, testy, and sub_test and train, trainy, and sub_train possess an equal number of rows, I used cbind to clip the subjects and activity names onto the data and stored the results in data frames merged_test and merged_train. Since these two data frames contained the same number of columns, I used rbind() to clip merged_train onto the bottome of merged_test and stored this in the variable untidy_merge.
+Because data frames test, testy, and sub_test and train, trainy, and sub_train possess an equal number of rows, I used cbind to clip the subjects and activity names onto the data and stored the results in data frames merged_test and merged_train. Since these two data frames contained the same number of columns, I used rbind() to clip merged_train onto the bottom of merged_test and stored this in the variable untidy_merge.
+
+###Selecting only rows pertaining to mean and standard deviation
+Next I removed the 495 rows that did not contain mean or standard deviation measurements using select(). The resulting data frame with 10,299 observations and 68 variables was stored in untidy_data.
+
+###Tidying up and summarization
+Finally, I tidied up the data using the summarise_each() function to provide the average of each of the 66 measurment variables grouped by Subject and Activity. The resulting data frame of 180 observations and 68 variables was stored in tidy_data. Tidy data was exported to the working directory using write.table as the file "tidy_data.txt".
