@@ -1,3 +1,8 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
 Getting And Cleaning Data Course Project
 ========================================
 Casey Privette
@@ -24,10 +29,15 @@ I next created R data frames by reading the txt files into R using the read.tabl
 
 * test <- X_test.txt (All measurements in test)
 * testy <- Y_test.txt (Activity codes in test)
+* sub_test <- subject_test.txt (The subjects each row applies to)
 * train <- X_train.txt (All measurements in train)
 * trainy <- Y_train.txt (All activity codes in train)
+* sub_train <- subject_train.txt (The subjects each row applies to)
 * act_names <- The descriptive names of the activity codes
 * var_names <- The descriptive names of the variables
 
 ###Changing Observation and Variable Names
-Next I wrote a for loop to change all coded activities in data frames testy and trainy to the cooresponding descriptive names. Next I used the names function to add the list of variables in var_names as the column names in test and train and assign "Activity_Names" as the column name in testy and trainy.
+Next I wrote a for loop to change all coded activities in data frames testy and trainy to the cooresponding descriptive names. I also used the gsub() function to make the variable names found in features.txt into a syntatically valid format. Next I used the names function to add the list of variables in var_names as the column names in test and train and assign "Activity_Names" as the column name in testy and trainy.
+
+###Merging datasets
+Because data frames test, testy, and sub_test and train, trainy, and sub_train possess an equal number of rows, I used cbind to clip the subjects and activity names onto the data and stored the results in data frames merged_test and merged_train. Since these two data frames contained the same number of columns, I used rbind() to clip merged_train onto the bottome of merged_test and stored this in the variable untidy_merge.
