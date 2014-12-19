@@ -53,3 +53,19 @@ for(i in 1:nrow(act_names)) {
       trainy[trainy==i] <- act_names[i,2]
 }
 
+names(test)  <- var_names[,2]
+names(train)  <- var_names[,2]
+names(testy) <- "Activity_Names"
+names(trainy) <- "Activity_Names"
+
+# Cbind the activity names with the cooresponding dataset
+merged_test <- cbind(testy,test)
+merged_train <- cbind(trainy, train)
+
+# Rbind merged_test and merged_train to make a larger dataset
+
+untidy_merge <- rbind(merged_test, merged_train)
+
+# Select only the columns containing mean or std dev measurements
+
+library(plyr)

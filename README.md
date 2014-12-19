@@ -15,7 +15,7 @@ The purpose of this script is to extract data from the Coursera Getting and Clea
 
 ### Steps
 
-After initially downloading and extracting the data I read the include README and codebooks to get an idea of what data was included. I then visually inspected to the data in Notepad ++ to get a sense for how the data was structured to determine the best method to read the data into R.
+After initially downloading and extracting the data on **Dec. 17, 2014** I read the include README and codebooks to get an idea of what data was included. I then visually inspected to the data in Notepad ++ to get a sense for how the data was structured to determine the best method to read the data into R.
 
 The raw data appears to be stored in a .txt file with fixed width columns. The activity codes are stored in a separate file with a cooresponding number of rows. 
 
